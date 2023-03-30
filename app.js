@@ -54,7 +54,9 @@ mongoose.set('strictQuery', true)
 
 async function main() {
   await mongoose
-    .connect('mongodb://127.0.0.1:27017/contactSchema')
+    .connect(
+      'mongodb+srv://bansumit23:vL6ur1Ra11o2aamD@cluster0.pkbmtjg.mongodb.net/?retryWrites=true&w=majority',
+    )
     .then(() => {
       console.log('connected succussfully')
     })
@@ -207,8 +209,8 @@ app.post('/enroll', (req, res) => {
     .save()
     .then(() => {
       res.send(
-        'your form has been submitted with the following data' +
-          JSON.stringify(req.body),
+        'your form has been submitted with the following data ' +
+          JSON.stringify(data),
       )
     })
     .catch((e) => {
